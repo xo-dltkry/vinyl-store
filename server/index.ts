@@ -6,7 +6,7 @@ import cors from 'cors'
 import router from "./routes/index.ts"
 import { ErrorHandlingMiddleware } from "./middlewares/ErrorHandlingMiddleware.ts"
 
-const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 7000
 
 const app = express()
 
