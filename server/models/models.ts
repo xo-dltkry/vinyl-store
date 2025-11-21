@@ -54,7 +54,7 @@ Vinyl.belongsTo(Genre)
 Vinyl.hasMany(CartItem)
 CartItem.belongsTo(Vinyl)
 
-Vinyl.hasOne(VinylInfo)
-VinylInfo.belongsTo(Vinyl)
+Vinyl.hasOne(VinylInfo, {as: 'info', foreignKey: 'vinylId'})
+VinylInfo.belongsTo(Vinyl, {foreignKey: 'vinylId'})
 
 export {User, Cart, CartItem, Vinyl, VinylInfo, Artist, Genre};
