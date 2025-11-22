@@ -39,6 +39,13 @@ const Genre = sequelize.define('genre', {
   name: {type: DataTypes.STRING, allowNull: false, unique: true}
 })
 
+export interface IUser {
+  id: number;
+  email: string;
+  role: string;
+  password: string;
+}
+
 User.hasOne(Cart)
 Cart.belongsTo(User)
 
