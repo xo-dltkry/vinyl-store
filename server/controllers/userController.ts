@@ -25,9 +25,10 @@ class UserController {
       return next(ApiError.badRequest("This email is already taken"))
     }
     const hashPassword = await bcrypt.hash(password, 5)
-    const user = await User.create({email, password: hashPassword, role}) as unknown as IUser
+    const userRole = role ? role.toUpperCase() : 'USER';
+    const user = await User.create({email, password: hashPassword, role: userRole}) as unknown as IUser
     const cart = await Cart.create({userId: user.id})
-    const token = generateJwt(user.id, user.email, user.role)
+    const token = generateJwt(user.id, user.email, userRole)
     return res.json({token})
   }
   async login(req: Request, res: Response, next: NextFunction) {
@@ -45,11 +46,9 @@ class UserController {
     return res.json({token})
   }
   async check(req: Request, res: Response, next: NextFunction) {
-    const {id} = req.query
-    if(!id) {
-      return next(ApiError.badRequest('No id'))
-    } 
-    res.json(id)
+    const { id, email, role } = req.user;
+    const token = generateJwt(id, email, role)
+    return res.json({token})
   }
 }
 
