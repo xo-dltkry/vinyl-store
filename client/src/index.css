@@ -7,5 +7,71 @@
 body {
   font-family: "Instrument Sans", sans-serif;
   font-optical-sizing: auto;
+  background-color: #f5f4ef;
 }
 
+.header-container {
+  background-color: #f0f0db;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 65px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.vinyl-store {
+  font-size: 37px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.headbutton {
+  height: 40px;
+  width: 130px;
+  border-radius: 5px;
+  border: 2.5px solid black
+}
+
+.header-auth {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+}
+
+.admin-panel {
+  background-color: rgb(183, 89, 183);
+  color: white;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.admin-panel:hover {
+  background-color: rgb(182, 115, 182);
+}
+
+.logout {
+  font-size: 20px;
+  background-color: rgb(237, 237, 237);
+  cursor: pointer;
+}
+
+.logout:hover {
+  background-color: rgb(208, 208, 208);
+}
+
+.login {
+  height: 40px;
+  width: 250px;
+  border-radius: 25px;
+  border: 2.5px solid black;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgb(236, 236, 236);
+}
+
+.login:hover {
+  background-color: rgb(222, 221, 221);
+}

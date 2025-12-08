@@ -1,0 +1,65 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91.2vh;
+}
+
+.container {
+  background-color: #f0f0db;
+  width: 900px;
+  height: 380px;
+  border: 2px solid black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.login {
+  font-size: 24px;
+  margin-top: 23px;
+}
+
+.loginbottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  height: 60px;
+  width: 800px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.inputs {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loginbottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 55px;
+  width: 790px;
+}
+
+.loginbtn {
+  width: 150px;
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  border: 2px solid rgba(74, 74, 74, 0.413);
+  background-color: rgb(239, 239, 239);
+  cursor: pointer;
+}
