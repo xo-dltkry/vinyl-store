@@ -75,3 +75,57 @@ body {
 .login:hover {
   background-color: rgb(222, 221, 221);
 }
+
+.modal-container {
+  margin-top: 20px;
+}
+
+.modal-form {
+  height: 120px;
+}
+
+.modal-input {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.modal-btn {
+  height: 40px;
+  width: 200px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.cancel {
+  background-color: rgb(230, 113, 113);
+  border: 1px solid rgb(46, 46, 46);
+}
+
+.save {
+  background-color: rgb(113, 230, 123);
+  border: 1px solid rgb(46, 46, 46);
+}
+
+.modal-genre {
+  height: 30px;
+  margin-top: 5px;
+  width: 136.3px;
+}
+
+.genre-container {
+  margin-top: 9px;
+}
+
+.modal-artist {
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 1.5px;
+}
+
+.modal-price {
+  margin-top: 10px;
+}
