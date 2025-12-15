@@ -21,6 +21,7 @@
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
+  font-size: 100px;
 }
 
 span {
@@ -31,16 +32,16 @@ span {
 }
 
 .btn {
-  width: 350px;
+  width: 450px;
   height: 60px;
   border: none;
   background-color: aliceblue;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 500;
   border-radius: 20px;
-  margin-top: 140px;
-  margin-left: 220px;
+  margin-top: 120px;
+  margin-left: 180px;
   color:rgb(27, 27, 27);
   cursor: pointer;
 }

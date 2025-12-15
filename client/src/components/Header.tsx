@@ -2,7 +2,7 @@ import { useContext } from "react";
 import {Context} from '../context/StoreContext';
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import { ADMIN_ROUTE, LOGIN_ROUTE } from "../utils/consts";
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
 
 function Header() {
   const navigate = useNavigate()
@@ -14,7 +14,7 @@ function Header() {
   return (
     <div className="header-container">
       <div className="header-name">
-        <h1 className="vinyl-store">Vinyl Store</h1>
+        <h1 className="vinyl-store" onClick={() => navigate(SHOP_ROUTE)} style={{cursor: "pointer"}}>Vinyl Store</h1>
       </div>
       {user.isAuth ? 
         <div className="header-auth">
