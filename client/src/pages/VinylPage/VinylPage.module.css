@@ -1,0 +1,32 @@
+.maincontainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px
+}
+
+.vinylimg {
+  height: 600px;
+  margin-top: 35px;
+  margin-left: 50px;
+}
+
+.description {
+  align-self: flex-start;
+  margin-top: 50px;
+}
+
+.vinyltitle {
+  font-size: 55px;
+}
+
+.vinylbandname {
+  font-size: 30px;
+  color: gray
+}
+
+.vinylprice {
+  margin-top: 350px;
+  font-size: 20px;
+  font-weight: bold;
+}

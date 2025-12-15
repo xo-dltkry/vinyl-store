@@ -30,12 +30,13 @@ export default class VinylStore {
     private _page: number = 1
     private _totalCount: number = 0
     private _limit: number = 3
+    private _searchQuery: string = ""
 
     constructor() {
         makeAutoObservable(this)
         this.seed()
     }
-    
+
     private seed() {
     const genres: IGenre[] = [
       { id: 1, name: "Rock" },
@@ -116,6 +117,9 @@ export default class VinylStore {
     setTotalCount(count: number) {
         this._totalCount = count
     }
+    setSearchQuery(query: string) {
+        this._searchQuery = query
+    }
 
     get genres() {
         return this._genres
@@ -140,5 +144,21 @@ export default class VinylStore {
     }
     get limit() {
         return this._limit
+    }
+    get searchQuery() {
+        return this._searchQuery
+    }
+    get filteredVinyls() {
+        const q = this._searchQuery.trim().toLowerCase();
+        if (!q) return this._vinyls;
+        return this._vinyls.filter((v) => {
+            const artistName =
+            this._artists.find((a) => a.id === v.artistId)?.name.toLowerCase() || "";
+
+            const matchTitle = v.title.toLowerCase().includes(q);
+            const matchArtist = artistName.includes(q);
+
+            return matchTitle || matchArtist;
+        });
     }
 }

@@ -7,7 +7,7 @@ interface IUser {
 }
 
 export default class UserStore {
-  private _isAuth = false;
+  private _isAuth = true;
   private _user: IUser | null = null;
 
   constructor() {
