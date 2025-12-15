@@ -4,19 +4,16 @@ import './index.css'
 import App from './App.tsx'
 import UserStore from './store/UserStore.tsx'
 import VinylStore from './store/VinylStore.tsx'
+import type {IStoreContext} from './context/StoreContext.ts'
+import { Context } from './context/StoreContext.ts'
 
-interface IStoreContext {
-  user: UserStore
-  vinyl: VinylStore
+const store: IStoreContext = {
+  user: new UserStore(),
+  vinyl: new VinylStore(),
 }
 
-export const Context = createContext<IStoreContext | null>(null)
-
 createRoot(document.getElementById('root')!).render(
-  <Context.Provider value={{
-    user: new UserStore(),
-    vinyl: new VinylStore()
-  }}>
+  <Context.Provider value={store}>
     <StrictMode>
       <App />
     </StrictMode>

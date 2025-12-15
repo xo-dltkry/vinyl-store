@@ -15,6 +15,8 @@ interface IVinyl {
     title: string;
     price: number;
     img: string;
+    genreId: number;
+    artistId: number;
 }
 
 export default class VinylStore {
@@ -23,7 +25,7 @@ export default class VinylStore {
     private _vinyls: IVinyl[] = []
 
     private _selectedGenre: IGenre | null = null
-    private _selectedArtist: IGenre | null = null
+    private _selectedArtist: IArtist | null = null
 
     private _page: number = 1
     private _totalCount: number = 0
@@ -31,6 +33,63 @@ export default class VinylStore {
 
     constructor() {
         makeAutoObservable(this)
+        this.seed()
+    }
+    
+    private seed() {
+    const genres: IGenre[] = [
+      { id: 1, name: "Rock" },
+      { id: 2, name: "Jazz" },
+      { id: 3, name: "Hip-Hop" },
+      { id: 4, name: "Electronic" },
+    ];
+
+    const artists: IArtist[] = [
+      { id: 1, name: "Pink Floyd" },
+      { id: 2, name: "Miles Davis" },
+      { id: 3, name: "Kendrick Lamar" },
+      { id: 4, name: "Daft Punk" },
+    ];
+
+    const vinyls: IVinyl[] = [
+      {
+        id: 1,
+        title: "The Dark Side of the Moon",
+        price: 12990,
+        img: "https://picsum.photos/600/400?vinyl=1",
+        genreId: 1,
+        artistId: 1,
+      },
+      {
+        id: 2,
+        title: "Kind of Blue",
+        price: 10500,
+        img: "https://picsum.photos/600/400?vinyl=2",
+        genreId: 2,
+        artistId: 2,
+      },
+      {
+        id: 3,
+        title: "Random Access Memories",
+        price: 15000,
+        img: "https://picsum.photos/600/400?vinyl=3",
+        genreId: 4,
+        artistId: 4,
+      },
+      {
+        id: 4,
+        title: "DAMN.",
+        price: 11900,
+        img: "https://picsum.photos/600/400?vinyl=4",
+        genreId: 3,
+        artistId: 3,
+      },
+    ];
+
+    this._genres = genres;
+    this._artists = artists;
+    this._vinyls = vinyls;
+    this._totalCount = vinyls.length;
     }
 
     setGenres(genres: IGenre[]) {

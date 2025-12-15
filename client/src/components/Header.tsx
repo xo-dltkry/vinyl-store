@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import {Context} from '../main.tsx';
+import {Context} from '../context/StoreContext';
 import { observer } from "mobx-react-lite";
 
 function Header() {
