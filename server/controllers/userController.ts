@@ -1,6 +1,6 @@
 import { ApiError } from "../error/ApiError.ts"
 import type {Request, Response, NextFunction} from "express"
-import {User, Cart} from '../models/models.ts'
+import {User} from '../models/models.ts'
 import type { IUser } from "../models/models.ts"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -27,7 +27,6 @@ class UserController {
     const hashPassword = await bcrypt.hash(password, 5)
     const userRole = role ? role.toUpperCase() : 'USER';
     const user = await User.create({email, password: hashPassword, role: userRole}) as unknown as IUser
-    const cart = await Cart.create({userId: user.id})
     const token = generateJwt(user.id, user.email, userRole)
     return res.json({token})
   }

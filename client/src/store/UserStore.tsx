@@ -7,7 +7,7 @@ interface IUser {
 }
 
 export default class UserStore {
-  private _isAuth = true;
+  private _isAuth = false;
   private _user: IUser | null = null;
 
   constructor() {
@@ -28,5 +28,9 @@ export default class UserStore {
 
   get user(): IUser | null {
     return this._user;
+  }
+
+  clearUser() {
+    this._user = null;
   }
 }

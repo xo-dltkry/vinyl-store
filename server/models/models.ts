@@ -8,14 +8,6 @@ const User = sequelize.define('user', {
   role: {type: DataTypes.STRING, defaultValue: 'USER'}
 })
 
-const Cart = sequelize.define('cart', {
-  id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
-
-const CartItem = sequelize.define('cart_item', {
-  id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
-
 const Vinyl = sequelize.define('vinyl', {
   id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
   title: {type: DataTypes.STRING, unique: true, allowNull: false},
@@ -46,22 +38,13 @@ export interface IUser {
   password: string;
 }
 
-User.hasOne(Cart)
-Cart.belongsTo(User)
-
-Cart.hasMany(CartItem)
-CartItem.belongsTo(Cart)
-
 Artist.hasMany(Vinyl)
 Vinyl.belongsTo(Artist)
 
 Genre.hasMany(Vinyl)
 Vinyl.belongsTo(Genre)
 
-Vinyl.hasMany(CartItem)
-CartItem.belongsTo(Vinyl)
-
 Vinyl.hasOne(VinylInfo, {as: 'info', foreignKey: 'vinylId'})
 VinylInfo.belongsTo(Vinyl, {foreignKey: 'vinylId'})
 
-export {User, Cart, CartItem, Vinyl, VinylInfo, Artist, Genre};
+export {User, Vinyl, VinylInfo, Artist, Genre};

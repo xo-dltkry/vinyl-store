@@ -12,6 +12,9 @@ const store: IStoreContext = {
   vinyl: new VinylStore(),
 }
 
+console.log(import.meta.env.VITE_API_URL);
+
+
 createRoot(document.getElementById('root')!).render(
   <Context.Provider value={store}>
     <StrictMode>

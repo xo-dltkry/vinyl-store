@@ -1,6 +1,5 @@
 import { ADMIN_ROUTE, CART_ROUTE, REGISTRATION_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, VINYL_ROUTE, HOME_ROUTE } from "./utils/consts.ts"
 import Admin from './pages/Admin/Admin.tsx'
-import Cart from "./pages/Cart/Cart.tsx"
 import type { RouteObject } from "react-router-dom"
 import Shop from "./pages/Shop/Shop.tsx"
 import Auth from "./pages/Auth/Auth.tsx"
@@ -12,10 +11,6 @@ export const authRoutes: RouteObject[] = [
     path: ADMIN_ROUTE,
     element: <Admin />,
   },
-  {
-    path: CART_ROUTE,
-    element: <Cart />,
-  }
 ]
 
 export const publicRoutes: RouteObject[] = [

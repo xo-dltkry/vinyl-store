@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import {Context} from '../context/StoreContext';
+import {useStore} from '../context/StoreContext';
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
 
 function Header() {
   const navigate = useNavigate()
-  const context = useContext(Context)
-  if (!context) {
-    throw new Error("Header must be used within Context.Provider");
+  const {user} = useStore()
+
+  const logOut = () => {
+    user.clearUser()
+    user.setIsAuth(false)
   }
-  const {user} = context
   return (
     <div className="header-container">
       <div className="header-name">
@@ -19,11 +19,11 @@ function Header() {
       {user.isAuth ? 
         <div className="header-auth">
           <button className="headbutton admin-panel" onClick={() => navigate(ADMIN_ROUTE)}>Admin Panel</button>
-          <button className="headbutton logout" onClick={() => navigate(LOGIN_ROUTE)}>Logout</button>
+          <button className="headbutton logout" onClick={() => logOut()}>Logout</button>
         </div>
         :
         <div className="header-unauth">
-          <button className="headbutton login" onClick={() => user.setIsAuth(true)}>Login / Registration</button>
+          <button className="headbutton login" onClick={() => navigate(LOGIN_ROUTE)}>Login / Registration</button>
         </div>
       }
     </div>
