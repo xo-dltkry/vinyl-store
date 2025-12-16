@@ -24,7 +24,7 @@ export default function VinylItem({ vinyl, artistName }: Props) {
           style={{cursor: "pointer"}}
       >
         <img
-          src={vinyl.img}
+          src={import.meta.env.VITE_API_URL + '/' + vinyl.img}
           className={`card-img-top ${styles.image}`}
           alt={vinyl.title}
         />

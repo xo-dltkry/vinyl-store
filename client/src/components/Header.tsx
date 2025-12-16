@@ -1,7 +1,7 @@
 import {useStore} from '../context/StoreContext';
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
 
 function Header() {
   const navigate = useNavigate()
